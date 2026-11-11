@@ -52,17 +52,17 @@ class EventTile extends StatelessWidget {
     // conditional expressions: event.cancelled ? ... : ...)
     return ListTile(
       leading: Icon(
-        event.canceled ? Icons.event_busy : Icons.event,
-        color: event.canceled ? colors.error : colors.primary,
+        event.cancelled ? Icons.event_busy : Icons.event,
+        color: event.cancelled ? colors.error : colors.primary,
       ),
       title: Text(
         event.title,
-        style: event.canceled
+        style: event.cancelled
             ? const TextStyle(decoration: TextDecoration.lineThrough)
             : null,
       ),
       subtitle: Text('${formatWhen(event.startsAt)}\n$where'),
-      trailing: event.canceled ? const Chip(label: Text('Canceled')) : null,
+      trailing: event.cancelled ? const Chip(label: Text('Cancelled')) : null,
       isThreeLine: true,
     );
   }
